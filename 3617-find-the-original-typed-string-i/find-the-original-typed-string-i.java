@@ -1,12 +1,13 @@
 class Solution {
     public int possibleStringCount(String word) {
-        long ans = 1;                               // flawless string
-        for (int i = 0, n = word.length(); i < n; ) {
-            int j = i;
-            while (j < n && word.charAt(j) == word.charAt(i)) j++;
-            ans += (j - i - 1);                     // L‑1 extras
-            i = j;
+        int output=1;
+        for(int i=1;i<word.length();i++){
+            if(word.charAt(i)==word.charAt(i-1)){
+                output++;
+            }
         }
-        return (int) ans;
+        return output;
+
+        
     }
 }
