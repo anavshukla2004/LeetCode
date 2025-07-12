@@ -3,7 +3,7 @@ class Solution {
         if(s.isEmpty()){
             return s;
         }
-        String[] words=s.split("\\s+");
+        String[] words=s.split("\\s+");//s+ is used split the string between spaces.
         StringBuilder reversed=new StringBuilder();
         for(int i=words.length-1;i>=0;i--){
             reversed.append(words[i]);
