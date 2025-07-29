@@ -1,18 +1,18 @@
+
 class Solution {
     public int maxSum(int[] nums) {
-        int mx = Arrays.stream(nums).max().getAsInt();
-        if (mx <= 0) {
-            return mx;
-        }
-        boolean[] s = new boolean[201];
-        int ans = 0;
-        for (int x : nums) {
-            if (x < 0 || s[x]) {
-                continue;
+        int maxNeg=Integer.MIN_VALUE;
+        boolean visited[]=new boolean[101];
+        int sum=0;
+        for(int val:nums){
+            if(val<=0){
+                maxNeg=Math.max(maxNeg,val);
             }
-            ans += x;
-            s[x] = true;
+            else if(!visited[val]){
+               sum+=val;
+               visited[val]=true;
+            }
         }
-        return ans;
+        return sum==0?maxNeg:sum;
     }
 }
