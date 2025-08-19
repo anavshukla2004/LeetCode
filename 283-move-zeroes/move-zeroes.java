@@ -1,21 +1,14 @@
 class Solution {
-    static {
-        for (int i = 0; i < 500; i++) {
-            moveZeroes(new int[] {0,0 });
-        }
-    }
-    public static void moveZeroes(int[] nums) {
-        
-        int curr=0;
+    public void moveZeroes(int[] nums) {     
         int i=0;
-        while(i<nums.length){
-            if(nums[i]!=0){
-                int temp = nums[i];
-                nums[i]= nums[curr];
-                nums[curr] = temp;    
-                curr++;  
+        for(int j=0;j<nums.length;j++){
+            if(nums[j]!=0){
+                nums[i]=nums[j];
+                i++;
             }
-            i++;
+        }
+        for(;i<nums.length;i++){
+            nums[i]=0;
         }
     }
 }
