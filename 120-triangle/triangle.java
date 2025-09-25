@@ -1,13 +1,23 @@
+import java.util.*;
+
 class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
-        List<Integer> lastrow=triangle.get(triangle.size()-1);
-        List<Integer> mini=new ArrayList<>(lastrow);
-        for(int i=triangle.size()-2;i>=0;i--){
-            List<Integer> row=triangle.get(i);
-            for(int j=0;j<row.size();j++){
-                mini.set(j,Math.min(mini.get(j),mini.get(j+1))+row.get(j));
-            }
+        int n = triangle.size();
+        Integer[][] memo = new Integer[n][n];
+        return dfs(triangle, 0, 0, memo);
+    }
+    
+    private int dfs(List<List<Integer>> triangle, int i, int j, Integer[][] memo) {
+        if (i == triangle.size() - 1) {
+            return triangle.get(i).get(j);
         }
-        return mini.get(0);
+        if (memo[i][j] != null) {
+            return memo[i][j];
+        }
+        int left = dfs(triangle, i + 1, j, memo);
+        int right = dfs(triangle, i + 1, j + 1, memo);
+        
+        memo[i][j] = triangle.get(i).get(j) + Math.min(left, right);
+        return memo[i][j];
     }
 }
