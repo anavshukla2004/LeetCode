@@ -1,19 +1,18 @@
 class Solution {
     public int specialArray(int[] nums) {
-        int i=1;
-        do{
-            int count=0;
-            for(int num:nums){
-                if(num>=i){
+        int count=0;
+        for(int i=1;i<=nums.length;i++){
+            for(int j=0;j<nums.length;j++){
+                if(nums[j]>=i){
                     count++;
                 }
-               
             }
-            if(count==i){
-                return count;
+            if(count!=i){
+                count=0;
             }
-            i++;
-        }while(i<=nums.length);
+            else 
+            return count;
+        }
         return -1;
     }
 }
