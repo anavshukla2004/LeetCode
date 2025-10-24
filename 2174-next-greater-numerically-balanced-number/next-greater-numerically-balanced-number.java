@@ -1,24 +1,21 @@
-import java.util.HashMap;
-
 class Solution {
     public int nextBeautifulNumber(int n) {
-        while (true) {
-            n++;
-            if (isBeautiful(n)) return n;
+        for (int i = n + 1; i <= 1224444; i++) {
+            if (isBalance(i)) {
+                return i;
+            }
         }
+        return -1;
     }
 
-    public boolean isBeautiful(int n) {
-        HashMap<Integer, Integer> mp = new HashMap<>();
-        
-        int temp = n;
-        while (temp > 0) {
-            int r = temp % 10;
-            mp.put(r, mp.getOrDefault(r, 0) + 1);
-            temp /= 10;
+    private boolean isBalance(int x) {
+        int[] count = new int[10];
+        while (x > 0) {
+            count[x % 10]++;
+            x /= 10;
         }
-        for (int k : mp.keySet()) {
-            if (k == 0 || mp.get(k) != k) {
+        for (int d = 0; d < 10; ++d) {
+            if (count[d] > 0 && count[d] != d) {
                 return false;
             }
         }
