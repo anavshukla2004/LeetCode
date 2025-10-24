@@ -8,10 +8,11 @@ class Solution {
     }
     public boolean isBeautiful(int n){
         HashMap<Integer,Integer> mp=new HashMap<>();
-        while(n>0){
-            int r=n%10;
+        int temp=n;
+        while(temp>0){
+            int r=temp%10;
             mp.put(r,mp.getOrDefault(r,0)+1);
-            n/=10;
+            temp/=10;
         }
         for(int k:mp.keySet()){
             if(k!=mp.get(k)){
