@@ -1,16 +1,12 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        int slow=nums[0];
-        int fast=nums[0];
-        do{
-            slow=nums[slow];
-            fast=nums[nums[fast]];
-        }while(slow!=fast);
-        slow=nums[0];
-        while(slow!=fast){
-            slow=nums[slow];
-            fast=nums[fast];
+        Map<Integer,Integer> mp=new HashMap<>();
+        for(int i:nums){
+            if(mp.containsKey(i)){
+                return i;
+            }
+            mp.put(i,1);
         }
-        return slow;
+        return -1;
     }
 }
