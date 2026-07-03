@@ -2,7 +2,7 @@ class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         int n=nums.length;
         Arrays.sort(nums);
-        Set<List<Integer>> set=new HashSet<>();
+        List<List<Integer>> result=new ArrayList<>();
         for(int i=0;i<n;i++){
             if(i>0&&nums[i]==nums[i-1]){
                 continue;
@@ -21,7 +21,7 @@ class Solution {
                     while(f<l&& nums[l]==nums[l+1]){
                         l--;
                     }
-                    set.add(list);
+                    result.add(list);
                 }
                 else if(sum<0){
                     f++;
@@ -31,6 +31,6 @@ class Solution {
                 }
             }
         }
-        return new ArrayList<>(set);
+        return result;
     }
 }
