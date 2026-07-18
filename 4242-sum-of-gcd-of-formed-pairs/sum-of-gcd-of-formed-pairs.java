@@ -1,4 +1,12 @@
 class Solution {
+    public int gcd(int a ,int b){
+        while(b!=0){
+            int t=a%b;
+            a=b;
+            b=t;
+        }
+        return a;
+    }
     public long gcdSum(int[] nums) {
         int n=nums.length;
         int[] prefixGcd=new int[n];
@@ -18,12 +26,5 @@ class Solution {
         }
         return (long)ans;
     }
-    static int gcd(int a ,int b){
-        while(b!=0){
-            int t=a%b;
-            a=b;
-            b=t;
-        }
-        return a;
-    }
+
 }
