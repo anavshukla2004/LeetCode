@@ -1,5 +1,5 @@
 class Solution {
-    public int gcd(int a ,int b){
+    private int gcd(int a ,int b){
         while(b!=0){
             int t=a%b;
             a=b;
