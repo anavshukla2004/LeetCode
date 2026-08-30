@@ -16,6 +16,6 @@ class Solution {
         int front=b+1;
         int back=n-a;
         int both=(a+1)+(n-b);
-        return Math.min(both,Math.min(front,back));
+        return Math.min(front,Math.min(back,both));
     }
 }
